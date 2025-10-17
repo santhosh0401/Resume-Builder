@@ -7,14 +7,7 @@ The platform enables users to **generate dynamic, verified resumes automatically
 
 This module represents the **Frontend Trial Task** focusing on **resume preview, customization, and real-time visualization** using **React + TypeScript**.
 
----
 
-## 🎯 Trial Task Objective
-
-As part of the **Resume System – Trial Task**, the goal was to conceptualize and implement one core frontend component for the ecosystem:
-> **Frontend Development – Design a modern UI for the resume preview and customization page.**
-
----
 
 ## 🛠️ Approach & Implementation
 
