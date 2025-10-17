@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 189 94% 43%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(189 94% 43%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(217 91% 98%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(217 91% 99%) 100%);
+    
+    --shadow-soft: 0 2px 8px -2px hsl(217 91% 60% / 0.1);
+    --shadow-medium: 0 4px 16px -4px hsl(217 91% 60% / 0.15);
+    --shadow-large: 0 8px 32px -8px hsl(217 91% 60% / 0.2);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 240 6% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 6% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 13%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 13%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 189 94% 43%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 217 91% 60%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(189 94% 43%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(222 47% 11%) 0%, hsl(217 91% 15%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(222 47% 13%) 0%, hsl(217 91% 16%) 100%);
+    
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 4px 16px -4px hsl(0 0% 0% / 0.4);
+    --shadow-large: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
+
+    --sidebar-background: 240 6% 10%;
+    --sidebar-foreground: 240 5% 96%;
+    --sidebar-primary: 224 76% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-accent-foreground: 240 5% 96%;
+    --sidebar-border: 240 4% 16%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+/* Print styles for professional / ATS-friendly resume PDF */
+@media print {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+  }
+
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 12pt;
+    line-height: 1.25;
+  }
+
+  /* Hide interactive UI, navigation, and decorative elements */
+  header, footer, nav, button, a[role="button"], .toaster, .sonner {
+    display: none !important;
+  }
+
+  /* Remove backgrounds, shadows, rounded corners for clean print */
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Ensure containers are full width for single-column layout */
+  .container, .max-w-4xl, .max-w-3xl, .max-w-5xl {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Make headings clear and machine-readable */
+  h1, .text-4xl, .text-5xl, .text-6xl {
+    font-size: 18pt !important;
+    font-weight: 700 !important;
+    margin: 0 0 0.25em !important;
+  }
+  h2, .text-3xl {
+    font-size: 14pt !important;
+    font-weight: 700 !important;
+    margin: 0 0 0.25em !important;
+  }
+  h3 { font-size: 12pt !important; font-weight: 600 !important; margin: 0 0 0.2em !important; }
+
+  /* Simplify badges and labels to plain text */
+  [class*="badge"], .Badge, .badge {
+    background: transparent !important;
+    color: #000 !important;
+    border: none !important;
+    font-weight: 600 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide icons and SVGs which can confuse ATS */
+  svg, .h-6, .h-5, .h-4, .w-6, .w-5, .w-4 {
+    display: none !important;
+  }
+
+  /* Ensure lists are simple and plain */
+  ul, ol { -webkit-margin-before: 0; -webkit-margin-after: 0; margin: 0 0 0.5em 1.2em !important; }
+  li { page-break-inside: avoid; }
+
+  /* Avoid breaking inside sections */
+  section { page-break-inside: avoid; margin-bottom: 0.6in; }
+
+  /* Remove interactive form controls visually */
+  input, textarea, select { border: none !important; background: transparent !important; }
+
+  /* Show link hrefs inline for clarity (optional) */
+  a[href]:after { content: " (" attr(href) ")"; font-size: 10pt; color: #000; text-decoration: none; }
+
+  /* Reduce padding for resume blocks */
+  .p-12, .p-8, .p-6, .p-4 { padding: 0 !important; }
+
+  /* Make muted text visible */
+  .text-muted-foreground { color: #000 !important; opacity: 1 !important; }
+
+  /* Force single column layout for resume content */
+  .grid, .grid-cols-2, .md\:grid-cols-2, .md\:grid-cols-3, .md\:grid-cols-4 { display: block !important; }
+
+  /* Ensure page breaks between major resume sections */
+  .resume-section { page-break-after: avoid; }
+}
